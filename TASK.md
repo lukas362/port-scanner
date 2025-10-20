@@ -149,7 +149,7 @@ Resultat sparade i scan_results.txt
 
 **Testchecklista:**
 
-- [ ] Testa på localhost (127.0.0.1)
+- [ ] Testa på scanme.nmap.org
 - [ ] Testa med giltiga och ogiltiga IP-adresser
 - [ ] Testa med ogiltiga portintervall
 - [ ] Testa felhantering (vad händer om internet är frånkopplat?)
@@ -185,7 +185,7 @@ Nätverksoperationer kan misslyckas av många anledningar! Du bör hantera:
 - Ogiltiga värdnamn/IP-adresser
 - Nätverket är onåbart
 
-Undersök: Vilka undantag kastar socket.connect()?
+Undersök: Vilka undantag kastar socket.connect?
 
 ### Göra det snabbare
 
@@ -228,14 +228,14 @@ I slutet av sessionen ska din grupp ha:
 1. Fungerande Python-skanner som kontrollerar flera portar
 2. Kod med kommentarer och dokumentation
 3. README-fil med användningsinstruktioner
-4. Testresultat som visar att det fungerar på åtminstone localhost
+4. Testresultat som visar att det fungerar på åtminstone scanme.nmap.org
 
 ## Viktiga påminnelser
 
 ⚠️ **Skanna ENDAST system du äger eller har tillstånd att skanna!**  
 ⚠️ Att skanna obehöriga system kan vara olagligt  
 ⚠️ Vissa nätverk kan blockera eller flagga skanningsaktivitet  
-⚠️ Testa alltid på localhost (127.0.0.1) först
+⚠️ Testa alltid på scanme.nmap.org först
 
 ## Frågor att överväga under utveckling
 
