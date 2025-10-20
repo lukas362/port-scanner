@@ -1,10 +1,8 @@
-#Mattias test
-
 # Network Scanner
 
 ## Group Members
 - [Name 1]
-- [Name 2]
+Mattias Karlsson test
 - [Name 3]
 
 ## Description
