@@ -2,7 +2,7 @@
                         #Tjena kl 15:39
 ## Group Members
 - Mattias Karlsson test
-- Lukas Svensson
+- Lukas Svensson aka nuke the luke 
 - Björn
 - Vien Hoang
 
