@@ -5,7 +5,7 @@
 - Lukas Svensson aka nuke the luke 
 - Björn
 - Vien Hoang
-skriv ditt namn här Daniel 
+- Daniel Hallgren
 
 ## Description
 [Brief description of what your network scanner does]
