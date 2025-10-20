@@ -1,10 +1,9 @@
 # Network Scanner
 
 ## Group Members
-- [Name 1]
-Mattias Karlsson test
-- [Name 3]
+- Mattias Karlsson test
 - Lukas Svensson test
+- Björn
 - Vien Hoang
 
 ## Description
@@ -36,3 +35,4 @@ python network_scanner.py
 
 ## What We Learned
 [Key takeaways from the project]
+
