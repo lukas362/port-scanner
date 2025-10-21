@@ -8,6 +8,7 @@ Date: 251021
 import socket
 import sys
 
+# start_server(str, int) the default host is 127.0.0.1 and the default port is 8080
 def start_server(host="127.0.0.1", port=8080):
     # Create a TCP/IP socket of IPv4 family and SOCK_STREAM type
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -52,12 +53,13 @@ def start_server(host="127.0.0.1", port=8080):
     except KeyboardInterrupt:
         print("Keyboard interupt.")
         sys.exit(1)
+    # catch other errors
     except Exception as e:
         print(f"Something went wrong!\nError: {e}")
     # Close socket for server
     finally:
         server_socket.close()
 
-
+# Start the program and run the start_server()
 if __name__ == "__main__":
     start_server()
