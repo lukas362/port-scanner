@@ -1,7 +1,7 @@
 # Network Scanner
-                        #Tjena kl 15:39
+
 ## Group Members
-- Mattias Karlsson test
+- Mattias Karlsson
 - Lukas Svensson
 - Björn
 - Vien Hoang
