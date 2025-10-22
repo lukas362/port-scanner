@@ -15,7 +15,9 @@ def start_client(host="45.33.32.156", port=80):
 
         # Setting up the "ping" message
         message = "ping"
+
         print(f"Sending: {message}")
+
         # Sending "ping" message to server
         client_socket.sendall(message.encode("utf-8"))
 
