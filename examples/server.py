@@ -44,6 +44,7 @@ def start_server(host="0.0.0.0", port=8080):
         sys.exit(1)
     except Exception as e:
         # Otherwise, handle any other exception
+
         print(f"Something went wrong!\nError: {e}")
 
     finally:
