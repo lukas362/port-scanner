@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Network Scanner Project
-Students: Vien
+Students: Björn, Daniel, Mattias.K, Lukas.S, Vien
 Date: 251021
 """
 
@@ -12,7 +12,7 @@ import sys
 def start_server(host="127.0.0.1", port=8080):
     # Create a TCP/IP socket of IPv4 family and SOCK_STREAM type
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # To avoid getting the "Address aldready in use" error
+    # To avoid getting the "Address already in use" error
     # Allows the server to restart and bind to the same port immediately, even if it has recently been shut down
     server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
@@ -45,6 +45,7 @@ def start_server(host="127.0.0.1", port=8080):
                     if response.strip() == "ping":
                         # Send back message to client in the form of a byteobject
                         client_socket.sendall(b"pong")
+
             # Close socket for client
             finally:
                 client_socket.close()
