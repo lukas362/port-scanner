@@ -1,11 +1,11 @@
 # Network Scanner
 
 ## Group Members
-- Mattias Karlsson
-- Lukas Svensson
 - Björn
-- Vien Hoang
-- Daniel Hallgren
+- Daniel
+- Mattias.K
+- Lukas.S
+- Vien
 
 ## Description
 [Brief description of what your network scanner does]
