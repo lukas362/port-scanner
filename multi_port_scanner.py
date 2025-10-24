@@ -56,13 +56,16 @@ def start_multiscan(target, start_port, max_port, timeout=1.0):
                             open_ports.append(f"Port {port} : Banner {banner}")
                             progress_bar.write(f"\nBanner for {target}:{port} -> {banner}")
                         else:
+                            open_ports.append(f"Port {port} : No banner received")
                             progress_bar.write(f"\nNo banner received for {target}:{port}")
 
                     # Socket timed out error
                     except socket.timeout:
+                        open_ports.append(f"Port {port} : No banner (timeout)")
                         progress_bar.write(f"\nNo banner (timeout) for {target}:{port}")
                     # Catch other errors
                     except Exception as e:
+                        open_ports.append(f"Port {port} : Error reading banner {e}")
                         progress_bar.write(f"\nError reading banner for {target}:{port}: {e}")
             # DNS lookup failed error
             except socket.gaierror as e:
@@ -82,29 +85,37 @@ def start_multiscan(target, start_port, max_port, timeout=1.0):
 
 # Save the ports to file, default file name port_results.txt
 def save_ports_to_file(target, port_list, file_name="port_results.txt"):
-    print(f"{GREEN}\nSave ports {port_list} to file.")
-    
-    # Try to save to file
-    try:
-        with open(file_name, "w") as f:
-            f.write(f"Open ports for target IP {target}\n")
-            # Separate each line with \n at the end
-            for port in port_list:
-                f.write(f"Port {port}\n")
-            # Print out the result of the saved file 
-            print(f"{MAGENTA}The results have been saved to the file: {file_name}")
 
-    # File not found error
-    except FileNotFoundError:
-        print("File not found.")
-    # Writing to file errors
-    except IOError:
-        print("An I/O error occurred.")
-    # Other errors
-    except:
-        print("Something went wrong...")
-    # Close file
-    f.close()
+    # Saves only open ports
+    if port_list:
+        print(f"{GREEN}\nSave ports to file: ") 
+        # Print open port(s)
+        for port in port_list:
+            print(port)    
+        
+        # Try to save to file
+        try:
+            with open(file_name, "w") as f:
+                f.write(f"Open ports for target IP {target}\n")
+                # Separate each line with \n at the end
+                for port in port_list:
+                    f.write(f"{port}\n")
+                # Print out the result of the saved file 
+                print(f"{MAGENTA}The results have been saved to the file: {file_name}")
+
+        # File not found error
+        except FileNotFoundError:
+            print("File not found.")
+        # Writing to file errors
+        except IOError:
+            print("An I/O error occurred.")
+        # Other errors
+        except:
+            print("Something went wrong...")
+        # Close file
+        f.close()
+    else:
+        print("\nNo ports are open.")
 
 # Run the program
 if __name__ == "__main__":
