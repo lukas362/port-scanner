@@ -37,6 +37,8 @@ python multi_port_scanner.py
 - [X] Loading bar
 - [x] OS detection of the target
 - [x] Beutiful colorama lines
+- [x] User friendly CLI arguments and installation package through requirements.txt
+- [x] User friendly URL inputs
 
 ## Testing
 Tested through scanme.nmap.org sites ports(1-100). Testing was succesful!

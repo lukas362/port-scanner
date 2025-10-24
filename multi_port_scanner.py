@@ -7,11 +7,9 @@ Date: 251021
 # Importing modules
 import socket
 import sys
-import threading
 import time
 from tqdm import tqdm
 from colorama import init, Fore
-from datetime import datetime
 
 # Init colors
 init()
@@ -56,23 +54,23 @@ def start_multiscan(target, start_port, max_port, timeout=1.0):
                         if banner:
                             # Add open port to the open_ports list
                             open_ports.append(f"Port {port} : Banner {banner}")
-                            progress_bar.write(f"Banner for {target}:{port} -> {banner}")
+                            progress_bar.write(f"\nBanner for {target}:{port} -> {banner}")
                         else:
-                            progress_bar.write(f"No banner received for {target}:{port}")
+                            progress_bar.write(f"\nNo banner received for {target}:{port}")
 
                     # Socket timed out error
                     except socket.timeout:
-                        progress_bar.write(f"No banner (timeout) for {target}:{port}")
+                        progress_bar.write(f"\nNo banner (timeout) for {target}:{port}")
                     # Catch other errors
                     except Exception as e:
-                        progress_bar.write(f"Error reading banner for {target}:{port}: {e}")
+                        progress_bar.write(f"\nError reading banner for {target}:{port}: {e}")
             # DNS lookup failed error
             except socket.gaierror as e:
-                progress_bar.write(f"Hostname could not be resolved. {e}")
+                progress_bar.write(f"\nHostname could not be resolved. {e}")
                 return open_ports
             # Socket error
             except socket.error as e:
-                progress_bar.write(f"Could not connect to server. {e}")
+                progress_bar.write(f"\nCould not connect to server. {e}")
                 return open_ports
             # Close socket
             finally:
@@ -84,7 +82,7 @@ def start_multiscan(target, start_port, max_port, timeout=1.0):
 
 # Save the ports to file, default file name port_results.txt
 def save_ports_to_file(target, port_list, file_name="port_results.txt"):
-    print(f"{GREEN}Save ports {port_list} to file.")
+    print(f"{GREEN}\nSave ports {port_list} to file.")
     
     # Try to save to file
     try:
@@ -131,6 +129,11 @@ if __name__ == "__main__":
     # As last resort, it will ask the user to input IP or domain.
     else: # It will convert <domain name> to IPv4, before asking for <start_port> and <end_port>.
         domain_name = str(input(Fore.BLUE + 'Enter target IP or domain: '))
+        # Spit url and get the domain name
+        if "http" in domain_name:
+            target = domain_name.split("://")
+            domain_name = target[1]
+
         target = socket.gethostbyname(domain_name)
         start_port = int(input(Fore.BLUE + 'Starting port: '))
         max_port = int(input(Fore.BLUE + 'Ending port: '))
